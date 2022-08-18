@@ -34,7 +34,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
   // };
 
   const handleLoadCharacter = async () => {
-    const apiCharacter = await api.getCharacter(id);
+    const apiCharacter = await api.getCharacter(Number(id));
     setCharacter(mapCharacterFromApiToVm(apiCharacter));
   };
 
@@ -42,7 +42,7 @@ export const CharacterContainer: React.FunctionComponent = (props) => {
     if (id) {
       handleLoadCharacter();
     }
-    console.log('bestSentences', character.bestSentences);
+    // console.log('bestSentences', character.bestSentences);
     // handleLoadCityCollection();
   }, []);
 

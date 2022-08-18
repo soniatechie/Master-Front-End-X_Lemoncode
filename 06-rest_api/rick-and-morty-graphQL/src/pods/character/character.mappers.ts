@@ -15,9 +15,10 @@ export const mapCharacterFromApiToVm = (
 export const mapCharacterFromVmToApi = (
   character: viewModel.Character
 ): apiModel.CharacterEntityApi => {
-  const { bestSentenceInput, specie, ...newCharacter } = character;
+  const { bestSentenceInput, specie, id, ...newCharacter } = character;
   return {
     ...newCharacter,
+    id: Number(id),
     species: specie,
     bestSentences: newCharacter.bestSentences,
   } as unknown as apiModel.CharacterEntityApi;
