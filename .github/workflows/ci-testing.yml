@@ -1,0 +1,20 @@
+name: Ci workflow
+
+on:
+  pull_request:
+    paths:
+      - '05-testing/**'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./05-testing/origin-front-admin
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install
+        run: npm install
+      - name: Tests
+        run: npm test
